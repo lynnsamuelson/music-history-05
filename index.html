@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nashville Software School</title>
+  <link rel="stylesheet" type="text/css" href="style.css"
+</head>
+<body>
+  <div class="flex-container">
+    <nav class="nav flex-item">
+      <ul class="navlist">
+        <li><a href="#">View Music</a></li>
+        <li><a class="border-lines" href="#">Add Music<a></li>
+          <li><a href="#">Profile</a></li>
+        <br>
+      </ul>
+    </nav>
+    <div class="left-box flex-item">
+      <p class="songlengthtext">Song length:</p>
+      <label class="songlength" for"songlength"></label>
+      <input class="songlength" type="range" name="songlength">
+      <br>
+      <p class="artisttext">Artist:</p>
+      <label class="artist" for="feedback-type"></label>
+        <select class="artist" id="feedback-type" name="type">
+          <option>Options</option>
+          <option>#</option>
+          <option>#</option>
+        </select>
+      <br>
+      <p class="albumtext">Album:</p>
+      <label class="album" for="feedback-type"></label>
+        <select class="album" id="feedback-type" name="type">
+          <option>Options</option>
+          <option>#</option>
+          <option>#</option>
+        </select>
+      <legend class="genre">Genre</legend>
+      <table>
+        <tr>
+          <td><input type="checkbox" name="rock" value="rock"></input></td>
+          <td>Rock</td>
+          <td><input type="checkbox" name="Classical" value="Classical"></input></td> 
+          <td>Classical</td>
+        <tr>
+          <td><input type="checkbox" name="pop" value="pop"></input></td>
+          <td>Pop</td>
+          <td><input type="checkbox" name="blues" value="blues"></input></td>
+          <td>Blues</td>
+        <tr>
+          <td><input type="checkbox" name="jazz" value="jazz"></td>
+          <td>Jazz</td>
+          <td><input type="checkbox" name="Hip Hop" value="Hip Hop"></input></td> <td>Hip Hop</td>
+      </table>
+      <br>
+      <input class="filter" type="submit" value="Filter">
+      </input>
+    </div>
+    <div id="songList" class="right-box flex-item">
+    </div>
+    <button id="morebtn">More
+    </button>
+  </div>
+  </script>
+  <script src="bower_components/jquery/dist/jquery.min.js">
+  </script>
+  <script data-main="javascripts/main"src="bower_components/requirejs/require.js">
+  </script> 
+</body>
+</html>
+
