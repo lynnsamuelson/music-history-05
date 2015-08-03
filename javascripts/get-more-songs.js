@@ -1,15 +1,15 @@
 
 define(function() {
   var populateSongs = [];
-  $.ajax({
-      url: "songs2.json",
-      async: false
-    }).done(function(data) {
-      populateSongs = data.songs;
-    });
   return {
-        getSongsOutput: function() {
-          return populateSongs;
-        }
-      }
+    getSongsOutput: function(callback) {
+      $.ajax({
+          url: "songs2.json",
+        }).done(function(data) {
+          console.log("click callback", callback);
+          callback.call(this, data.songs);
+        });
+    }
+  };
 });
+
