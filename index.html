@@ -1,72 +1,145 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Nashville Software School</title>
-  <link rel="stylesheet" type="text/css" href="style.css"
-</head>
-<body>
-  <div class="flex-container">
-    <nav class="nav flex-item">
-      <ul class="navlist">
-        <li><a href="#">View Music</a></li>
-        <li><a class="border-lines" href="#">Add Music<a></li>
-          <li><a href="#">Profile</a></li>
-        <br>
+  <head>
+    <meta charset="utf-8">
+    <title>Music History App - NSS</title>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+  </head>
+  <body>
+  <!-- NAV BAR from BOOTSTRAP -->
+    <div class="row col-sm-12 container-fluid">
+      <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#">View Music</a></li>
+      <li role="presentation"><a href="#">Add Music</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
       </ul>
-    </nav>
-    <div class="left-box flex-item">
-      <p class="songlengthtext">Song length:</p>
-      <label class="songlength" for"songlength"></label>
-      <input class="songlength" type="range" name="songlength">
-      <br>
-      <p class="artisttext">Artist:</p>
-      <label class="artist" for="feedback-type"></label>
-        <select class="artist" id="feedback-type" name="type">
-          <option>Options</option>
-          <option>#</option>
-          <option>#</option>
-        </select>
-      <br>
-      <p class="albumtext">Album:</p>
-      <label class="album" for="feedback-type"></label>
-        <select class="album" id="feedback-type" name="type">
-          <option>Options</option>
-          <option>#</option>
-          <option>#</option>
-        </select>
-      <legend class="genre">Genre</legend>
-      <table>
-        <tr>
-          <td><input type="checkbox" name="rock" value="rock"></input></td>
-          <td>Rock</td>
-          <td><input type="checkbox" name="Classical" value="Classical"></input></td> 
-          <td>Classical</td>
-        <tr>
-          <td><input type="checkbox" name="pop" value="pop"></input></td>
-          <td>Pop</td>
-          <td><input type="checkbox" name="blues" value="blues"></input></td>
-          <td>Blues</td>
-        <tr>
-          <td><input type="checkbox" name="jazz" value="jazz"></td>
-          <td>Jazz</td>
-          <td><input type="checkbox" name="Hip Hop" value="Hip Hop"></input></td> <td>Hip Hop</td>
-      </table>
-      <br>
-      <input class="filter" type="submit" value="Filter">
-      </input>
     </div>
-    <div id="songList" class="right-box flex-item">
+
+<!-- MAIN PANAL CONTAINER -->
+<!--   LEFT BUTTONS PANAL -->
+    
+    <div class="row col-sm-12 container-fluid left-box">
+      <div class="col-sm-3 border">
+
+    <!-- SLIDER -->
+
+        <div class="row col-sm-12 border container-fluid"> 
+            <label class="col-sm-4" for"songlength"><h4 class="songlengthtext">Song length:</h4></label>
+        </div>
+            
+        <div class="row border col-sm-12">
+          <input class="col-sm-8 slide-bar" type="range" name="songlength">
+        </div>
+
+<!-- DROP DOWN BUTTONS -->
+
+        <div class="row col-sm-12 border">
+          <label class="artist" for="feedback-type"><h4 class="artisttext">Artist:</h4></label>
+        </div>
+        <div class="row col-sm-12 border">
+          <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+               Options
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">O1</a></li>
+                <li><a href="#">O2</a></li>
+                <li><a href="#">O3</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <div class="row col-sm-12 border">
+          <label class="album" for="feedback-type"><h4 class="albumtext">Album:</h4></label>
+        </div>
+
+
+        <div class="row col-sm-12 border">
+          <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+               Options
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">O1</a></li>
+                <li><a href="#">O2</a></li>
+                <li><a href="#">O3</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- BEGIN RADIO BUTTONS -->
+
+        <div class="row col-sm-12 border">
+          <h4 class="albumtext">Genre:</h4>
+        </div>
+
+
+        <div class="row col-sm-12 border">
+          <div class"row col-sm-12 border">
+            <div class="col-sm-6">
+              <input type="checkbox" name="rock" value="rock"><p>Rock</p></input>
+
+            </div>
+            <div class="col-sm-6">
+              <input type="checkbox" name="Classical" value="Classical"><p>Classical</p></input>
+            </div>
+          </div>
+
+          <div class"row col-sm-12 border">
+            <div class="col-sm-6">
+              <input type="checkbox" name="pop" value="Pop"><p>Pop</p></input>
+
+            </div>
+            <div class="col-sm-6">
+              <input type="checkbox" name="Jazz" value="Jazz"><p>Jazz</p></input>
+            </div>
+          </div>
+
+          <div class"row col-sm-12 border">
+            <div class="col-sm-6">
+              <input type="checkbox" name="Blues" value="Blues"><p>Blues</p></input>
+
+            </div>
+            <div class="col-sm-6">
+              <input type="checkbox" name="HipHop" value="HipHop"><p>Hip Hop</p></input>
+            </div>
+          </div>
+        </div>
+
+        <!-- END Radio Buttons -->
+          
+        <div class="row col-sm-12">
+          <input class="filter" type="submit" value="Filter">
+        </div> 
+
+      </div>
+
+     <!--  RIGHT PANAL -->
+
+      <div class="row col-sm-9 border">
+        <div class="row col-sm-12 border">      
+          <div id="songList">
+          </div>
+        </div>
+        <div "row col-sm-12 border">
+          <button id="morebtn">More
+          </button>
+        </div>          
+      </div>      
     </div>
-    <button id="morebtn">More
-    </button>
-  </div>
-  </script>
-  <script src="bower_components/jquery/dist/jquery.min.js">
-  </script>
-  <script data-main="javascripts/main"src="bower_components/requirejs/require.js">
-  </script> 
-</body>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js">
+    </script>
+    <script src="bower_components/jquery/dist/jquery.min.js">
+    </script>
+    <script data-main="javascripts/main"src="bower_components/requirejs/require.js">
+    </script> 
+  </body>
 </html>
 

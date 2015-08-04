@@ -1,3 +1,8 @@
+//this js file connects the var outputEl to the div with the id
+//of songList and then returns that variable.  This is linking 
+//the js to a specific place in the html
+
+
 define(function() {
   var $outputEl = $("#songList");
   //console.log("songList" + $outputEl);

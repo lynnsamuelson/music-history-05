@@ -1,4 +1,12 @@
+.slide-bar {
+  max-width: 50px;
+}
 
+/*.border {
+  border: 2px solid black;
+}*/
+
+/*
 .navlist {
   list-style-type: none;
   float: none;
@@ -68,3 +76,13 @@
 .right-box section:first-of-type {
   font: bold;
 }
+
+
+@media screen and (min-width: 320px) {
+  .flex-container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+
+}*/
