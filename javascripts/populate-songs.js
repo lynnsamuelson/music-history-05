@@ -8,7 +8,7 @@ define(function() {
   //console.log(populateSongs);
   return {
     getSongsOutput: function(callback) {
-      console.log(callback);
+      //console.log(callback);
       $.ajax({
           url: "songs.json",
         }).done(function(data) {

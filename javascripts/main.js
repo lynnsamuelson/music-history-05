@@ -16,8 +16,8 @@ requirejs(
 
       for (var i = 0; i < songs.length; i++) {
         currentSong = songs[i];
-        console.log(currentSong);
-        songOutput += "<div id='song'>";
+        //console.log(currentSong);
+        songOutput += "<div id='song' class='text row col-sm-12'>";
         songOutput += "<div id='del'>" + currentSong.song + "</div>";
         songOutput += "<div id='del'>" + currentSong.artist + "</div>";
         songOutput += "<div id='del'>" + currentSong.album + "</div>";
@@ -78,8 +78,8 @@ requirejs(
 //referenced.
 
     $("#morebtn").click(function() {
-      console.log("click", morebtn);
-      console.log("getMore", getMore.getSongsOutput); 
+      //console.log("click", morebtn);
+      //console.log("getMore", getMore.getSongsOutput); 
       getMore.getSongsOutput(pageDsp);
     });
   });

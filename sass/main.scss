@@ -6,6 +6,61 @@ body {
   color: $primary-color;
 }
 
-.slide-bar {
-  max-width: 50px;
+@mixin background-color($color) {
+  background-color: $color;
 }
+
+
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: #999999;
+}
+
+.music-nav {
+  @include background-color(#C4DDB5)
+  
+}
+
+.right {
+  @include background-color(#C086B9);
+  padding: 10px;
+
+}
+
+.left{
+  @include background-color(#945476);
+  text-align: center;
+  padding: 10px;
+
+}
+
+.big-box {
+
+  background: #9999ff;
+}
+
+.text {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.button {
+  font-size: 1.5em;
+}
+
+
+// #filterbtn {
+//   position: absolute;
+//   right: 10px;
+//   padding-top: 100px;
+// }
+
+
+
+
+
+
+
+
