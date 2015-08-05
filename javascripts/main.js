@@ -1,40 +1,77 @@
+requirejs.config({
+  baseUrl: './javascripts',
+  paths: {
+    'jquery': '../bower_components/jquery/dist/jquery.min',
+    'hbs': '../bower_components/require-handlebars-plugin/hbs',
+    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
+  },
+  shim: {
+    'bootstrap': ['jquery']
+  }
+});
+
+
+
+
+
 //requirejs gets the other js files and populates a function to 
 //the code in those files accessible.  Order is important (i.e. 
 // dom-access relates to the "dom" argument in the function)
 
 requirejs(
-  ["dom-access", "populate-songs", "get-more-songs"], 
-  function(dom, populate, getMore) {
+  ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs"], 
+  function($, Handlebars, bootstrap, dom, populate, getMore) {
 
 //The function pageDsp takes the data that is passed into it and
 //loops through the data to make each key in the object into an 
 //html element
 
-    var songOutput = "";
-    function pageDsp(songs) {
-      var currentSong;    
+  // require(['hbs!../templates/songs'], function(songTemplate) {
 
-      for (var i = 0; i < songs.length; i++) {
-        currentSong = songs[i];
-        //console.log(currentSong);
-        songOutput += "<div id='song' class='text row col-sm-12'>";
-        songOutput += "<div id='del'>" + currentSong.song + "</div>";
-        songOutput += "<div id='del'>" + currentSong.artist + "</div>";
-        songOutput += "<div id='del'>" + currentSong.album + "</div>";
-        songOutput += "<button id=\"delbtn\">Delete</button>";
-        songOutput += "<br>";
-        songOutput += "</div>";
-        //console.log(songOutput);
-        
-        
+  //         el.append(songTemplate(songs));  
+
+    //var songOutput = "";
+    var counter = 0;
+    function pageDsp(songs) {
+      var currentSong;
+      if (counter > 1) {
+        return
+      } else {
+      
+        require(['hbs!../templates/songs'], function(songTemplate) {
+        $("#songList").append(songTemplate(songs));
+          var el = $("#songList");
+
+        })
       }
+
+
+      
+
+
+
+        
+
+      // for (var i = 0; i < songs.length; i++) {
+      //   currentSong = songs[i];
+      //   //console.log(currentSong);
+      //   songOutput += "<div id='song' class='text row col-sm-12'>";
+      //   songOutput += "<div id='del'>" + currentSong.song + "</div>";
+      //   songOutput += "<div id='del'>" + currentSong.artist + "</div>";
+      //   songOutput += "<div id='del'>" + currentSong.album + "</div>";
+      //   songOutput += "<button id=\"delbtn\">Delete</button>";
+      //   songOutput += "<br>";
+      //   songOutput += "</div>";
+      //   //console.log(songOutput);        
+        
+      // }
 
 // set var x to the argument dom in the require js function which 
 //links the data to #songList in the html
 
           //console.log(dom);
-          var x = dom.getOutputElement();
-          x.html(songOutput);
+          // var x = dom.getOutputElement();
+          // x.html(songOutput);
       
       
 
@@ -69,8 +106,10 @@ requirejs(
 //populate.getSongsOutput goes to populate-songs.js and returns the
 // getSongsOutput function using the function pageDsp as the 
 //arguement.  
-
+  
     populate.getSongsOutput(pageDsp);
+
+    
 
 //when the more button (id=morebtn) is clicked the getMore.
 //getSongsOutput is returned with the pageDsp function.  This
@@ -78,6 +117,9 @@ requirejs(
 //referenced.
 
     $("#morebtn").click(function() {
+      counter ++;
+      console.log(counter);
+
       //console.log("click", morebtn);
       //console.log("getMore", getMore.getSongsOutput); 
       getMore.getSongsOutput(pageDsp);

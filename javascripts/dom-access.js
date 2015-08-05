@@ -2,8 +2,7 @@
 //of songList and then returns that variable.  This is linking 
 //the js to a specific place in the html
 
-
-define(function() {
+define(["jquery"], function($) {
   var $outputEl = $("#songList");
   //console.log("songList" + $outputEl);
 

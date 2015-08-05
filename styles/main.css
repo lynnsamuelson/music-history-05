@@ -29,4 +29,11 @@ body {
 .button {
   font-size: 1.5em; }
 
+#filterbtn {
+  text-align: center;
+  margin-top: 25px; }
+
+.radiobtn {
+  text-align: left; }
+
 /*# sourceMappingURL=main.css.map */

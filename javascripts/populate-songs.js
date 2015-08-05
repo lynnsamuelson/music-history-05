@@ -3,7 +3,7 @@
 //returns it as an object (assuming the json file is formated
 //properly)
 
-define(function() {
+define(["jquery"], function($) {
   //var populateSongs = [];
   //console.log(populateSongs);
   return {
@@ -13,7 +13,7 @@ define(function() {
           url: "songs.json",
         }).done(function(data) {
           //console.log(callback);
-          callback.call(this, data.songs);
+          callback.call(this, data);
           //console.log(populateSongs);
       });
     }
