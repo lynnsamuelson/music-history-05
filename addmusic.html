@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Music History App - NSS</title>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+  </head>
+  <body>
+  <!-- NAV BAR from BOOTSTRAP -->
+    <div class="music-nav container-fluid">
+      <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="index.html">View Music</a></li>
+      <li role="presentation"><a href="#">Add Music</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      </ul>
+    </div>
+    <div id="moreMusic">
+      <h1>Add a Song</h1>
+      
+      <div id="add">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Artist</span>
+            <input id="newArtist" type="text" class="form-control" placeholder="Artist/Band Name Here" aria-describedby="sizing-addon1">
+          </div>
+
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Song</span>
+            <input id="newSong" type="text" class="form-control" placeholder="Song Name Here" aria-describedby="sizing-addon1">
+          </div>
+
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Album</span>
+            <input id="newAlbum" type="text" class="form-control" placeholder="Album Name Here" aria-describedby="sizing-addon1">
+          </div>
+
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Genre</span>
+            <input id="newGenre" type="text" class="form-control" placeholder="Album Name Here" aria-describedby="sizing-addon1">
+          </div>
+
+          <div id="addSong">
+            <button class="button">Add Song
+            </button>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+   
+
+    <script data-main="javascripts/main"src="bower_components/requirejs/require.js">
+    </script> 
+  </body>
+</html>

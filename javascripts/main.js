@@ -51,15 +51,47 @@ requirejs(
     populate.getSongsOutput(pageDsp);
 
 
-    $("#morebtn").click(function() {
-      counter ++;
-      //console.log(counter);
+    // $("#morebtn").click(function() {
+    //   counter ++;
+    //   //console.log(counter);
   
-      getMore.getSongsOutput(pageDsp);
+    //   getMore.getSongsOutput(pageDsp);
 
-    });       
+    // });
+    $("#addSong").click(function() {
+      console.log("clicked");
+      var artist = $("#newArtist").val();
+        console.log("artist", artist);
+
+      var song = $("#newSong").val();
+        console.log("song", song);
+
+      var album = $("#newAlbum", album).val();
+        console.log("album", album);
+      var genre = $("#newGenre", genre).val();
+        console.log("Genre", genre);
+        
+      var newSong = {};
+      newSong["song"] = song;
+      newSong["artist"] = artist;
+      newSong["album"] = album;
+      newSong["genre"] = genre;
+      console.log(newSong);
+     
+
+      $.ajax ({
+        url: "https://luminous-fire-170.firebaseio.com/songs.json",
+        method: "POST", 
+        data: JSON.stringify(newSong)
+      }).done(function(NewType) {
+        console.log("New Song");
+      })
+
+    })       
 
 });
+
+
 
   
 

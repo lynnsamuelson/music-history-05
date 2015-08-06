@@ -1,0 +1,31 @@
+{
+    "songs": [
+    {
+        "song": "Chiquitita",
+        "artist": "Z*Ztop",
+        "album": "Eliminator"
+    },
+    {
+        "song": "The Logical Song",
+        "artist": "SuperTramp",
+        "album": "Breakfast in America"
+    },
+    {
+        "song": "Welcome to the Jungle",
+        "artist": "Guns & Roses",
+        "album": "Appetite for Destruction"
+    },
+ 
+    {
+        "song": "I Hope You Dance",
+        "artist": "LeAnn Womak",
+        "album": "I Hope You Dance"
+    },
+    
+    {
+        "song": "Just to See You Smile",
+        "artist": "Tim McGraw",
+        "album": "Everywhere"
+    }
+  ]
+}

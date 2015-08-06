@@ -21,7 +21,8 @@ body {
   
 }
 
-.right {
+div.right {
+  //background-image:url(http://upload.wikimedia.org/wikipedia/en/thumb/3/30/ABBA_Gold_cover.png/220px-ABBA_Gold_cover.png);
   @include background-color(#C086B9);
   padding: 10px;
 

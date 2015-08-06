@@ -10,7 +10,7 @@ define(["jquery"], function($) {
     getSongsOutput: function(callback) {
       //console.log(callback);
       $.ajax({
-          url: "songs.json",
+          url: "https://luminous-fire-170.firebaseio.com/.json",
         }).done(function(data) {
           //console.log(callback);
           callback.call(this, data);
