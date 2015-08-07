@@ -37,6 +37,7 @@ requirejs(
             $("#albumdrpdwn").append(albumTemplate(songs));
        
         });
+
       }
 
 
@@ -50,7 +51,6 @@ requirejs(
 
     populate.getSongsOutput(pageDsp);
 
-
     // $("#morebtn").click(function() {
     //   counter ++;
     //   //console.log(counter);
@@ -59,7 +59,7 @@ requirejs(
 
     // });
     $("#addSong").click(function() {
-      console.log("clicked");
+      console.log("add songclicked");
       var artist = $("#newArtist").val();
         console.log("artist", artist);
 
@@ -72,10 +72,10 @@ requirejs(
         console.log("Genre", genre);
         
       var newSong = {};
-      newSong["song"] = song;
-      newSong["artist"] = artist;
-      newSong["album"] = album;
-      newSong["genre"] = genre;
+      newSong['song.song'] = song;
+      newSong['song.artist'] = artist;
+      newSong['song.album'] = album;
+      newSong['song.genre'] = genre;
       console.log(newSong);
      
 
@@ -85,11 +85,33 @@ requirejs(
         data: JSON.stringify(newSong)
       }).done(function(NewType) {
         console.log("New Song");
-      })
+      });
+    });
 
-    })       
+    $('#filterbtn').click(function() {
+      console.log("filter clicked");
 
-});
+      var currentArtist = $('#artistdrpdwn').val(); 
+      console.log(currentArtist);
+      var currentAlbum = $('#albumdrpdwn').val(); 
+      console.log(currentAlbum);
+      var checkedboxes = $( "input:checked" );
+      for (var i = 0; i < checkedboxes.length; i++) {
+      }  
+      console.log(checkedboxes);
+        
+      // console.log( $( "input:checked" ).val() + " is checked!" );
+     
+      
+    });
+
+});    
+
+
+
+  
+
+
 
 
 
