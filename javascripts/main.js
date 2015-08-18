@@ -5,7 +5,8 @@ requirejs.config({
     'firebase': '../bower_components/firebase/firebase',
     'lodash': '../bower_components/lodash/lodash',    
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
-    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
+    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
+    'q': '../bower_components/q/q'
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -18,16 +19,43 @@ requirejs.config({
 
 
 requirejs(
-  ["jquery", "lodash", "firebase", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs"], 
-  function($, _, _firebase, Handlebars, bootstrap, dom, populate, getMore) {
+  ["jquery", "q", "lodash", "firebase", "hbs", "bootstrap", "dom-access",
+   "populate-songs", "get-more-songs", "post"], 
+  function($, Q, _, _firebase, Handlebars, bootstrap, dom,
+   populate, getMore, post) {
     
   var allSongsArray = [];
+
+  var first_list_of_songs = populate();
+
+  first_list_of_songs
+    .then(function(first_songs) {
+    console.log(first_songs); //first songs = data in populate_songs.js
+      for (var i = 0; i < first_songs.songs.length; i++) {
+        allSongsArray.push(first_songs.songs[i]);
+      }
+    console.log("allSongsArray", allSongsArray); 
+
+    return getMore();
+
+    })  
+    .then(function(second_songs) { 
+      second_songs.songs.forEach(function(song) {
+        allSongsArray.push(song); 
+      })
+    })
+    .fail()
+    .done(function() {
+      console.log("all_songs", allSongsArray);
+    })
+  
+  //.then what to do if resolved and .fail is what to do if fails
 
 
   var myFirebaseRef = new Firebase("https://luminous-fire-170.firebaseio.com/");
   myFirebaseRef.child("songs").on("value", function(snapshot) {
     var songs = snapshot.val();
-    console.log(songs);
+    //console.log("all songs", songs);
 
     require(['hbs!../templates/songs'], function(songTemplate) {
     $("#songList").append(songTemplate({songs:songs}));
@@ -47,25 +75,30 @@ requirejs(
     for (var key in songs) {
       allSongsArray[allSongsArray.length] = songs[key];
     }
-      console.log("all songs array", allSongsArray);
+      //console.log("all songs array", allSongsArray);
 
     $(document).on("click", "#delbtn", function() {
         
-      console.log("delete clicked");
+      //console.log("delete clicked");
       $(this).parent("div").remove();
     });
 
 
     $('#filterbtn').click(function() {
-        console.log("filter clicked");
+        //console.log("filter clicked");
 
         var currentArtist = $('#artistdrpdwn').val(); 
-        console.log(currentArtist);
+        //console.log(currentArtist);
         var currentAlbum = $('#albumdrpdwn').val(); 
-        console.log(currentAlbum);
+        //console.log(currentAlbum);
         var checkedboxes = $( "input:checked" );
         for (var i = 0; i < checkedboxes.length; i++) {
-        }  
+          // if (checkedboxes(i) === song.genre) {
+
+          // }
+        }
+         
+        console.log(allSongsArray); 
         console.log(checkedboxes);
         var filteredSongs = _.filter(allSongsArray, function(song) {
           if (song.artist === currentArtist || song.album === currentAlbum) {
@@ -73,14 +106,43 @@ requirejs(
           } else {
             return false;
           }
-        })
-        console.log(filteredSongs);
+        });
+        //console.log(filteredSongs);
         require(['hbs!../templates/songs'], function(songTemplate) {
           $("#songList").html(songTemplate({songs:filteredSongs}));
       
         });
      
     }); 
+
+    $('#filterGenrebtn').click(function() {
+      console.log("Filter Genre button clicked");
+      var filteredGenre = _.filter(allSongsArray, function(song) {
+       console.log(filteredGenre);
+       //var rock = $('[name=rock]:checked').val();
+       //console.log("rock");
+       // if (song.genre === rock) {
+       //      return true;
+       //    } else {
+       //      return false;
+       //    }
+       //  //console.log(filteredSongs);
+       //  require(['hbs!../templates/songs'], function(songTemplate) {
+       //    $("#songList").html(songTemplate({songs:filteredGenre}));
+      
+       //  });
+        });
+      
+      });
+
+    $('#clearfilterbtn').click(function() {
+      console.log("clear filter clicked");
+      require(['hbs!../templates/songs'], function(songTemplate) {
+        $("#songList").html(songTemplate({songs:songs}));
+      //var el = $("#songList");
+      });
+
+    });
 
 
   });
@@ -89,39 +151,56 @@ requirejs(
     $("#addSong").click(function() {
       console.log("add songclicked");
       var artist = $("#newArtist").val();
-        console.log("artist", artist);
+        //console.log("artist", artist);
 
       var song = $("#newSong").val();
-        console.log("song", song);
+        //console.log("song", song);
 
       var album = $("#newAlbum", album).val();
-        console.log("album", album);
+        //console.log("album", album);
       var genre = $("#newGenre", genre).val();
-        console.log("Genre", genre);
+        //console.log("Genre", genre);
         
       var newSong = {};
-      newSong['song.song'] = song;
-      newSong['song.artist'] = artist;
-      newSong['song.album'] = album;
-      newSong['song.genre'] = genre;
+      newSong['song'] = song;
+      newSong['artist'] = artist;
+      newSong['album'] = album;
+      newSong['genre'] = genre;
       console.log(newSong);
-     
 
-      $.ajax ({
-        url: "https://luminous-fire-170.firebaseio.com/songs.json",
-        method: "POST", 
-        data: JSON.stringify(newSong)
-      }).done(function(NewType) {
-        console.log("New Song");
-      });
+      post(newSong);
     });
+    
+    
 
 
   });
 
-
+      // $.ajax ({
+      //   url: "https://luminous-fire-170.firebaseio.com/songs.json",
+      //   method: "POST", 
+      //   data: JSON.stringify(newSong)
+      // }).done(function(NewType) {
+      //   console.log("New Song");
+      // });
   
+// return function() { 
+//     var deferred = Q.defer();
 
+//     $.ajax({
+//        url: "./javascripts/songs.json",
+//     })
+//     .done(function(data) { //done means promise was successful 
+//       deferred.resolve(data); //sends to main js call
+
+//     })
+//     .fail(function(xhr, status, error) {
+//       deferred.reject(error); //sends error to main js
+
+//     });
+
+//     return deferred.promise;
+//   }
 
 
 

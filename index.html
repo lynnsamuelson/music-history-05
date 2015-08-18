@@ -17,53 +17,57 @@
       </ul>
     </div>
 
-<!-- MAIN PANAL CONTAINER -->
+
+
 
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3 left">
-      <label class="artist" for="feedback-type"><h4 class="artisttext">Artist:</h4></label>
-      
+      <label class="artist dropdown dropDownArtist" for="feedback-type"><h4 class="dropLabel">Artist</h4></label>      
       <select id="artistdrpdwn">
       </select>
 
       
-      <label class="album" for="feedback-type"><h4 class="albumtext">Album:</h4></label>
+      <label class="album dropdown" for="feedback-type" class="dropDownLabel"><h4 class="dropLabel">Album:</h4></label>
       <select id="albumdrpdwn">
       </select>
       
 
-      <h4 class="albumtext">Genre:</h4>
 
       <div class="row radiobtn">
+        <h4 class="albumtext radiobtn">Genre:</h4>
         <div class="col-sm-6">
-          <input id="rockbtn" type="checkbox" name="rock" value="rock"> Rock
+          <input id="rockbtn" type="checkbox" name="rock" value="rock"><label for="rockbtn" class="radiobtn">Rock</label>
         </div>
         <div class="col-sm-6">
-          <input id="classicalbtn" type="checkbox" name="Classical" value="Classical"> Classical
+          <input id="classicalbtn" type="checkbox" name="Classical" value="Classical"><label for="classicalbtn" class="radiobtn">Classical</label>
         </div>
       </div>
 
       <div class="row radiobtn">
         <div class="col-sm-6">
-          <input id="popbtn" type="checkbox" name="pop" value="Pop"> Pop
+          <input id="popbtn" type="checkbox" name="pop" value="Pop"><label for="popbtn" class="radiobtn">Pop</label>
         </div>
         <div class="col-sm-6">
-          <input id="jazzbtn" type="checkbox" name="Jazz" value="Jazz"> Jazz
+          <input id="jazzbtn" type="checkbox" name="Jazz" value="Jazz"><label for="jazzbtn" class="radiobtn">Jazz</label>
         </div>
       </div>
       
       <div class="row radiobtn">
         <div class="col-sm-6">
-          <input id="bluesbtn" type="checkbox" name="Blues" value="Blues"> Blues
+          <input id="bluesbtn" type="checkbox" name="Blues" value="Blues"><label for="bluesbtn" class="radiobtn">Blues</label>
         </div>
         <div class="col-sm-6">
-          <input id="hiphopbtn" type="checkbox" name="HipHop" value="HipHop"> Hip Hop
+          <input id="hiphopbtn" type="checkbox" name="HipHop" value="HipHop"><label for="hiphopbtn" class="radiobtn">Hip Hop</label>
         </div>
 
         <div class="filter">
-          <button id="filterbtn" class="button">Filter
+          <button id="filterbtn" class="filtbutton">Filter
+          </button>
+           <button id="filterGenrebtn" class="filtbutton">Filter by Genre
+          </button>
+          <button id="clearfilterbtn" class="filtbutton">Clear Filter
           </button>
         </div>
 
