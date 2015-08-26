@@ -1,0 +1,47 @@
+{
+    "songs": [
+
+        { 
+            "name": "This is Halloween", 
+            "artist": "Danny Elfman", 
+            "album": "The Nighmare Before Christmas",
+            "genre": "Soundtrack"
+        },
+
+        { 
+            "name": "After I Fall", 
+            "artist": "LeAnn Womak", 
+            "album": "I Hope You Dance",
+            "genre": "Country"
+        },
+
+        { 
+            "name": "One's a Couple", 
+            "artist": "LeAnn Womak", 
+            "album": "Here's More Where That Came From",
+            "genre": "Country"
+        },
+
+        { 
+            "name": "Do You Want to Build a Snowman", 
+            "artist": "Kristin Bell", 
+            "album": "Frozen Soundtrack",
+            "genre": "Soundtrack"
+        },
+
+        
+        {
+            "song": "The Logical Song",
+            "artist": "SuperTramp",
+            "album": "Breakfast in America",
+            "genre": "Rock"
+        },
+        {
+            "song": "Welcome to the Jungle",
+            "artist": "Guns & Roses",
+            "album": "Appetite for Destruction",
+            "genre": "Rock"
+        }
+    ]
+}
+

@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>Music History App - NSS</title>
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
-  <body>
+  <body ng-app="musicApp">
   <!-- NAV BAR from BOOTSTRAP -->
     <div class="music-nav container-fluid">
       <ul class="nav nav-pills">
@@ -77,8 +77,20 @@
     </div>
 
     <div class="col-sm-9 right">
-      <div id="songList" class="filterSong">
+      <div ng-controller="musicCtrl">
+        <input type="text" ng-model="songSearchText" placeholder="Search All">
+        <section>
+          <ul ng-repeat="songs in songs">
+            <h3>Song: {{songs.name }}</h3>
+            <li>Artist: {{songs.artist }}</li>
+            <li>Album: {{songs.album }}</li>
+            <li>Genre: {{songs.genre }}</li>
+            <button ng-click="killMusic(songs)">Delete</button>
+          </ul>
+        </section>
       </div>
+      <!-- <div id="songList" class="filterSong">
+      </div> -->
       
     </div>
        
@@ -86,10 +98,18 @@
   </div>
 </div>
 
-
-    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
-    <script data-main="javascripts/main"src="bower_components/requirejs/require.js">
-    </script> 
+<!--
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="../bower_components/q/q"></script>
+  <script src="../bower_components/require-handlebars-plugin/hbs"></script>
+  <script src="../bower_components/lodash/lodash"></script>
+  <script data-main="javascripts/main"src="lib/bower_components/requirejs/require.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min"></script>
+-->
+  <script src="lib/bower_components/jquery/dist/jquery.js"></script>
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controllers/music.js"></script>
   </body>
 </html>
 

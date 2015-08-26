@@ -1,0 +1,24 @@
+{
+  "songs": [
+    {
+        "name": "I Hope You Dance",
+        "artist": "LeAnn Womak", 
+        "album": "I Hope You Dance",
+        "genre": "Country"
+    },
+
+    { 
+        "name": "Let it Go", 
+        "artist": "Idina Menzel", 
+        "album": "Frozen Soundtrack",
+        "genre": "Soundtrack"
+    },
+
+    {
+        "name": "Just to See You Smile",
+        "artist": "Tim McGraw",
+        "album": "Everywhere",
+        "genre": "Country"
+    }
+  ]
+}
