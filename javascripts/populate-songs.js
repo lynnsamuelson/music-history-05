@@ -21,7 +21,7 @@ define(["jquery","q"], function($, Q) {
     });
 
     return deferred.promise;
-  }
+  };
 });
 
   //var populateSongs = [];

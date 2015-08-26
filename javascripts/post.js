@@ -12,14 +12,14 @@ define(["jquery","q"], function($, Q) {
     })
     .done(function(data) {
       //console.log("newSong", newSong);
-      console.log("data", data);
       deferred.resolve(data);
+      //console.log("data", data);
     })
     
     .fail(function(xhr, status, error) {
       deferred.reject(error);
-      console.log(error);
-    })
+      console.log("The error is ", error);
+    });
     return deferred.promise;
-  }
+  };
 });
