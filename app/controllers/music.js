@@ -1,14 +1,22 @@
 app.controller("musicCtrl", function($scope, $q) {
   $scope.title = "Music List";
   $scope.songs = "";
-  $scope.music = "";
+  $scope.theMusic = "";
   $scope.newSong = {
     name: "",
     artist: ""
   };
 
+  $scope.songSearchText = "";
+  
+  $scope.killMusic = function(songs) {
+    var musicIndex = $scope.songs.indexOf(songs);
+    if (musicIndex >= 0) {
+      $scope.songs.splice(musicIndex, 1);
+    }
+  };
+
   function getMusicList() {
-      //perform some asynchronous operation, resole or reject the promise whe appropriote
       return $q(function(resolve, reject) {
 
         $.ajax({
@@ -22,8 +30,9 @@ app.controller("musicCtrl", function($scope, $q) {
         });
       });
     }
-
+  
   getMusicList()
+
   .then(
     function(promiseResolutionData) {
       $scope.songs = promiseResolutionData;
@@ -32,17 +41,8 @@ app.controller("musicCtrl", function($scope, $q) {
     console.log("error", error);
   });
 
-  $scope.killMusic = function(songs) {
-    var musicIndex = $scope.songs.indexOf(songs);
-    if (musicIndex >= 0) {
-      $scope.songs.splice(musicIndex, 1);
-    }
-  };
-
   function getMoreMusic() {
-      //perform some asynchronous operation, resole or reject the promise whe appropriote
       return $q(function(resolve, reject) {
-
         $.ajax({
           url: "./../data/songs2.json"
         })
@@ -54,10 +54,8 @@ app.controller("musicCtrl", function($scope, $q) {
         });
       });
     }
-
-
-//push new songs into the object with a for loop
   getMoreMusic()
+//pushes new songs into the object
   .then(
     function(promiseResolutionData) {
       for (var i=0; i<promiseResolutionData.length; i++){
@@ -67,15 +65,4 @@ app.controller("musicCtrl", function($scope, $q) {
     function(error) {
     console.log("error", error);
   });
-
-  $scope.killMusic = function(songs) {
-    var musicIndex = $scope.songs.indexOf(songs);
-    if (musicIndex >= 0) {
-      $scope.songs.splice(musicIndex, 1);
-    }
-  };
-
-
-
-
 });

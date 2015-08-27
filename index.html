@@ -21,7 +21,7 @@
 
 
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3 left">
       <label class="artist dropdown dropDownArtist" for="feedback-type"><h4 class="dropLabel">Artist</h4></label>      
@@ -73,12 +73,16 @@
 
 
       </div>
-
+ -->
     </div>
 
+
     <div class="col-sm-9 right">
-      <div ng-controller="musicCtrl">
-        <input type="text" ng-model="songSearchText" placeholder="Search All">
+      <div ng-controller="musicCtrl">Select
+        <label for="artist">Artist:</label>
+        <select name="artist" ng-model="theMusic" value="Select Artist" ng-options="value.artist for value in songs">
+        <option>--</option>Select
+        </select>
         <section>
           <ul ng-repeat="songs in songs">
             <h3>Song: {{songs.name }}</h3>
