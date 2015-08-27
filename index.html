@@ -18,89 +18,10 @@
     </div>
 
 
-
-
-
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-3 left">
-      <label class="artist dropdown dropDownArtist" for="feedback-type"><h4 class="dropLabel">Artist</h4></label>      
-      <select id="artistdrpdwn">
-      </select>
-
-      
-      <label class="album dropdown" for="feedback-type" class="dropDownLabel"><h4 class="dropLabel">Album:</h4></label>
-      <select id="albumdrpdwn">
-      </select>
-      
-
-
-      <div class="row radiobtn">
-        <h4 class="albumtext radiobtn">Genre:</h4>
-        <div class="col-sm-6">
-          <input id="rockbtn" type="checkbox" name="rock" value="rock"><label for="rockbtn" class="radiobtn">Rock</label>
-        </div>
-        <div class="col-sm-6">
-          <input id="classicalbtn" type="checkbox" name="Classical" value="Classical"><label for="classicalbtn" class="radiobtn">Classical</label>
-        </div>
-      </div>
-
-      <div class="row radiobtn">
-        <div class="col-sm-6">
-          <input id="popbtn" type="checkbox" name="pop" value="Pop"><label for="popbtn" class="radiobtn">Pop</label>
-        </div>
-        <div class="col-sm-6">
-          <input id="jazzbtn" type="checkbox" name="Jazz" value="Jazz"><label for="jazzbtn" class="radiobtn">Jazz</label>
-        </div>
-      </div>
-      
-      <div class="row radiobtn">
-        <div class="col-sm-6">
-          <input id="bluesbtn" type="checkbox" name="Blues" value="Blues"><label for="bluesbtn" class="radiobtn">Blues</label>
-        </div>
-        <div class="col-sm-6">
-          <input id="hiphopbtn" type="checkbox" name="HipHop" value="HipHop"><label for="hiphopbtn" class="radiobtn">Hip Hop</label>
-        </div>
-
-        <div class="filter">
-          <button id="filterbtn" class="filtbutton">Filter
-          </button>
-           <button id="filterGenrebtn" class="filtbutton">Filter by Genre
-          </button>
-          <button id="clearfilterbtn" class="filtbutton">Clear Filter
-          </button>
-        </div>
-
-
-      </div>
- -->
-    </div>
-
-
-    <div class="col-sm-9 right">
-      <div ng-controller="musicCtrl">Select
-        <label for="artist">Artist:</label>
-        <select name="artist" ng-model="theMusic" value="Select Artist" ng-options="value.artist for value in songs">
-        <option>--</option>Select
-        </select>
-        <section>
-          <ul ng-repeat="songs in songs">
-            <h3>Song: {{songs.name }}</h3>
-            <li>Artist: {{songs.artist }}</li>
-            <li>Album: {{songs.album }}</li>
-            <li>Genre: {{songs.genre }}</li>
-            <button ng-click="killMusic(songs)">Delete</button>
-          </ul>
-        </section>
-      </div>
-      <!-- <div id="songList" class="filterSong">
-      </div> -->
-      
+    <div class="col-sm-9 right" ng-view>
     </div>
        
       
-  </div>
-</div>
 
 <!--
   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
@@ -112,6 +33,8 @@
 -->
   <script src="lib/bower_components/jquery/dist/jquery.js"></script>
   <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="lib/bower_components/angular-route/angular-route.js"></script>
+  <script src="lib/bower_components/angular-filter/dist/angular-filter.min.js"></script>
   <script src="app/app.js"></script>
   <script src="app/controllers/music.js"></script>
   </body>

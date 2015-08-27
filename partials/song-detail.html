@@ -1,0 +1,10 @@
+<section>
+  <input type="text" ng-model="songsSearchText">
+  <ul >
+    <h3>Song: {{selectedSong.songs.name }}</h3>
+    <li>Artist: {{selectedSong.songs.artist }}</li>
+    <li>Album: {{selectedSong.songs.album }}</li>
+    <li>Genre: {{selectedSong.songs.genre }}</li>
+    <button ng-click="killMusic(songs)">Delete</button>
+  </ul>
+</section>

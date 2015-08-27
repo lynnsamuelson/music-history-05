@@ -1,13 +1,13 @@
 app.controller("musicCtrl", function($scope, $q) {
   $scope.title = "Music List";
-  $scope.songs = "";
+  $scope.songs = [];
   $scope.theMusic = "";
   $scope.newSong = {
     name: "",
     artist: ""
   };
 
-  $scope.songSearchText = "";
+  $scope.songsSearchText = "";
   
   $scope.killMusic = function(songs) {
     var musicIndex = $scope.songs.indexOf(songs);
@@ -35,7 +35,9 @@ app.controller("musicCtrl", function($scope, $q) {
 
   .then(
     function(promiseResolutionData) {
-      $scope.songs = promiseResolutionData;
+      for (var i=0; i<promiseResolutionData.length; i++){
+        $scope.songs.push(promiseResolutionData[i]);
+      }
   },
     function(error) {
     console.log("error", error);
