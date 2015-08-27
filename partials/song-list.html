@@ -1,9 +1,10 @@
 <section>
-  <input type="text" ng-model="songsSearchText">
+  <div>
+    <button><a href="#/songs/new">Add New Song</a></button>
+  </div>
+  <input type="text" ng-model="songsSearchText.name">
   <div ng-repeat="songs in songs | filter: songsSearchText">
     <h3><a href="#/songs/{{songs.id}}">Song: {{songs.name }}</a></h3>
     <button ng-click="killMusic(songs)">Delete</button>
   </div>
 </section>
-
-<a href="#/songs/new">Create New Song</a>

@@ -7,6 +7,10 @@ app.config(['$routeProvider',
       templateUrl: 'partials/song-list.html',
       controller: 'musicCtrl'
     }).
+    when('/songs/new', {
+      templateUrl: 'partials/addSongForm.html',
+      controller: 'addSongCtrl'
+    }).
     when('/songs/:songId', {
       templateUrl: 'partials/song-detail.html',
       controller: 'SongDetailCtrl'

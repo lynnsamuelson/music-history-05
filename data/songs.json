@@ -34,19 +34,27 @@
 
         
         {
-            "id": 5,
-            "song": "The Logical Song",
-            "artist": "SuperTramp",
-            "album": "Breakfast in America",
-            "genre": "Rock"
+        "id": 7,
+        "name": "I Hope You Dance",
+        "artist": "LeAnn Womak", 
+        "album": "I Hope You Dance",
+        "genre": "Country"
+        },
+
+        { 
+            "id": 8,
+            "name": "Let it Go", 
+            "artist": "Idina Menzel", 
+            "album": "Frozen Soundtrack",
+            "genre": "Soundtrack"
         },
 
         {
-            "id": 6,
-            "song": "Welcome to the Jungle",
-            "artist": "Guns & Roses",
-            "album": "Appetite for Destruction",
-            "genre": "Rock"
+            "id": 9,
+            "name": "Just to See You Smile",
+            "artist": "Tim McGraw",
+            "album": "Everywhere",
+            "genre": "Country"
         }
     ]
 }

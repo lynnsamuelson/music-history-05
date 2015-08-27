@@ -18,11 +18,11 @@ app.controller("musicCtrl",
 
     song_storage.then(
     function(promiseResolutionData) {
-      console.log("promiseResolutionData", promiseResolutionData);
+      //console.log("promiseResolutionData", promiseResolutionData);
       $scope.songs = promiseResolutionData;
     },
     function(promiseRejectionError) {
-      console.log("error", promiseRejectionError);
+      //console.log("error", promiseRejectionError);
     });
     $scope.killMusic = function(songs) {
       var musicIndex = $scope.songs.indexOf(songs);
