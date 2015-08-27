@@ -1,26 +1,33 @@
-app.controller("SongDetailCtrl", ["$scope", "$routeParams", "song-list",
-  function($scope, $routeParams, song_storage) {
+app.controller("SongDetailCtrl", 
+  ["$scope",
+  "$routeParams",
+  "simple_storage",
+  "song_storage",
+  
+  function($scope, $routeParams, simple_storage, song_storage) {
     $scope.selectedSong = {};
-    $scope.songsId = $routeParams.songsId;
+    $scope.songId = $routeParams.songId;
 
-    console.log("$scope.songId", $scope.songsId);
+    console.log("simple_storage.getJunk(\"garbage\")", 
+      simple_storage.getJunk("garbage"));
 
-    // song_storage.then(
-    //   function(promiseResolutionData) {
-    //     console.log("promiseResolutionData", promiseResolutionData);
+    console.log("$scope.songId", $scope.songId);
 
-    //     $scope.selectedSong = promiseResolutionData.filter(function(song) {
-    //       return songs.id === parseInt($scope.songsId);
-    //     })[0];
+    song_storage.then(
+      function(promiseResolutionData) {
+        console.log("promiseResolutionData", promiseResolutionData);
 
-    //     console.log("$scope.selectedSong", $scope.selectedSong);
-    //   },
-    //   function(promiseRejectionError) {
-    //     console.log("error", promiseRejectionError);
-    //   }
-    // );
+        $scope.selectedSong = promiseResolutionData.filter(function(song) {
+          return song.id === parseInt($scope.songId);
+        })[0];
+
+        console.log("$scope.selectedSong", $scope.selectedSong);
+      },
+      function(promiseRejectionError) {
+        console.log("error", promiseRejectionError);
+      }
+    );
   }
 ]);
-
 
 
