@@ -1,32 +1,13 @@
 app.controller("SongDetailCtrl", 
   ["$scope",
   "$routeParams",
-   "simple_storage",
-  "song_storage",
+  "$firebaseObject",
   
-  function($scope, $routeParams, simple_storage, song_storage) {
-    $scope.selectedSong = {};
-    $scope.songId = $routeParams.songId;
-
-    //console.log("simple_storage.getJunk(\"garbage\")", 
-      simple_storage.getJunk("garbage");
-
-    //console.log("$scope.songId", $scope.songId);
-
-    song_storage.then(
-      function(promiseResolutionData) {
-        //console.log("promiseResolutionData", promiseResolutionData);
-
-        $scope.selectedSong = promiseResolutionData.filter(function(song) {
-          return song.id === parseInt($scope.songId);
-        })[0];
-
-        //console.log("$scope.selectedSong", $scope.selectedSong);
-      },
-      function(promiseRejectionError) {
-        //console.log("error", promiseRejectionError);
-      }
-    );
+  function($scope, $routeParams, $firebaseObject) {
+   
+    var ref = new Firebase("https://luminous-fire-170.firebaseio.com/songs/"+ $routeParams.songId);
+    $scope.selectedSong = $firebaseObject(ref);
+    
   }
 ]);
 

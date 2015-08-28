@@ -1,8 +1,8 @@
 app.controller("musicCtrl", 
   ["$scope",
   "$routeParams",
-  "song_storage",
-  function($scope, $q, song_storage) {
+  "$firebaseArray",
+  function($scope, $routeParams, $firebaseArray) {
     $scope.title = "Music List";
     $scope.songs = [];
     $scope.theMusic = "";
@@ -15,15 +15,10 @@ app.controller("musicCtrl",
 
     $scope.songsSearchText = "";
 
+    var ref = new Firebase("https://luminous-fire-170.firebaseio.com/songs");
+    $scope.songs = $firebaseArray(ref);
+    console.log("scope.songs", $scope.songs);
 
-    song_storage.then(
-    function(promiseResolutionData) {
-      //console.log("promiseResolutionData", promiseResolutionData);
-      $scope.songs = promiseResolutionData;
-    },
-    function(promiseRejectionError) {
-      //console.log("error", promiseRejectionError);
-    });
     $scope.killMusic = function(songs) {
       var musicIndex = $scope.songs.indexOf(songs);
       if (musicIndex >= 0) {
@@ -35,58 +30,3 @@ app.controller("musicCtrl",
 ]);
  
 
-//     function getMusicList() {
-//         return $q(function(resolve, reject) {
-
-//           $.ajax({
-//             url: "./../data/songs.json"
-//           })
-//           .done(function(response) {
-//             resolve(response.songs);
-//           })
-//           .fail(function(xhr,status, error) {
-//             reject(error);
-//           });
-//         });
-//       }
-    
-//     getMusicList()
-
-//     //getSongList()
-
-//     .then(
-//       function(promiseResolutionData) {
-//         for (var i=0; i<promiseResolutionData.length; i++){
-//           $scope.songs.push(promiseResolutionData[i]);
-//         }
-//     },
-//       function(error) {
-//       console.log("error", error);
-//     });
-
-//     function getMoreMusic() {
-//         return $q(function(resolve, reject) {
-//           $.ajax({
-//             url: "./../data/songs2.json"
-//           })
-//           .done(function(response) {
-//             resolve(response.songs);
-//           })
-//           .fail(function(xhr,status, error) {
-//             reject(error);
-//           });
-//         });
-//       }
-//     getMoreMusic()
-//   //pushes new songs into the object
-//     .then(
-//       function(promiseResolutionData) {
-//         for (var i=0; i<promiseResolutionData.length; i++){
-//           $scope.songs.push(promiseResolutionData[i]);
-//         }
-//     },
-//       function(error) {
-//       console.log("error", error);
-//     });
-//   }
-// ]); 
