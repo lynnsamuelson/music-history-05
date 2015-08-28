@@ -18,14 +18,12 @@ app.controller("musicCtrl",
     var ref = new Firebase("https://luminous-fire-170.firebaseio.com/songs");
     $scope.songs = $firebaseArray(ref);
     console.log("scope.songs", $scope.songs);
+    console.log("scope.songs.song", $scope.songs);
 
-    $scope.killMusic = function(songs) {
-      var musicIndex = $scope.songs.indexOf(songs);
-      if (musicIndex >= 0) {
-        $scope.songs.splice(musicIndex, 1);
-      }
+    $scope.messages = $firebaseArray(ref);
+    $scope.deleteSong = function(songId) {
+        ref.child(songId).remove();
     };
-
   }
 ]);
  

@@ -6,7 +6,7 @@ app.factory("song_storage", function($q, $http) {
     return $q(function(resolve, reject) {
      
       // Perform some asynchronous operation, resolve or reject 
-      the promise when appropriate.
+      //the promise when appropriate.
       $http.get('./data/songs.json')
       .success(
         function(objectFromJSONFile) {
