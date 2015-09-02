@@ -1,7 +1,10 @@
-define(["jquery","q"], function($, Q) {
-  
+import * as $ from "jquery";
+import * as q from "q";
+
+export default function() {
+  let deferred = q.defer();
   return function() { 
-    var deferred = Q.defer();
+    let deferred = q.defer();
 
     $.ajax({
        url: "./javascripts/songs2.json",
@@ -16,8 +19,34 @@ define(["jquery","q"], function($, Q) {
     });
 
     return deferred.promise;
-  }
-});
+
+  }; 
+}
+
+
+
+
+
+// define(["jquery","q"], function($, Q) {
+  
+  // return function() { 
+  //   var deferred = Q.defer();
+
+  //   $.ajax({
+  //      url: "./javascripts/songs2.json",
+  //   })
+  //   .done(function(data) { //done means promise was successful 
+  //     deferred.resolve(data); //sends to main js call
+
+  //   })
+  //   .fail(function(xhr, status, error) {
+  //     deferred.reject(error); //sends error to main js
+
+  //   });
+
+  //   return deferred.promise;
+//   };
+// });
 
 
 

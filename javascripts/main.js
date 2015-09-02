@@ -6,7 +6,9 @@ requirejs.config({
     'lodash': '../bower_components/lodash/lodash',    
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
-    'q': '../bower_components/q/q'
+    'q': '../bower_components/q/q',
+    'es6': '../lib/bower_components/requirejs-babel/es6',
+    'babel': "../lib/bower_components/requirejs-babel/babel-5.8.22.min"
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -19,14 +21,14 @@ requirejs.config({
 
 
 requirejs(
-  ["jquery", "q", "lodash", "firebase", "hbs", "bootstrap", "dom-access",
-   "populate-songs", "get-more-songs", "post"], 
+  ["jquery", "q", "lodash", "firebase", "hbs", "bootstrap", "es6!dom-access",
+   "es6!populate-songs", "es6!get-more-songs", "es6!post", "es6", "babel"], 
   function($, Q, _, _firebase, Handlebars, bootstrap, dom,
-   populate, getMore, post) {
+   populate, getMore, post, es6, babel) {
     
   var allSongsArray = [];
-
   var first_list_of_songs = populate();
+
 
   first_list_of_songs
     .then(function(first_songs) {
@@ -42,12 +44,12 @@ requirejs(
     .then(function(second_songs) { 
       second_songs.songs.forEach(function(song) {
         allSongsArray.push(song); 
-      })
+      });
     })
     .fail()
     .done(function() {
       console.log("all_songs", allSongsArray);
-    })
+    });
   
   //.then what to do if resolved and .fail is what to do if fails
 
@@ -162,10 +164,10 @@ requirejs(
         //console.log("Genre", genre);
         
       var newSong = {};
-      newSong['song'] = song;
-      newSong['artist'] = artist;
-      newSong['album'] = album;
-      newSong['genre'] = genre;
+      newSong.song = song;
+      newSong.artist = artist;
+      newSong.album = album;
+      newSong.genre = genre;
       console.log(newSong);
 
       post(newSong);
