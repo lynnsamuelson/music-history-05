@@ -1,12 +1,12 @@
 body {
-  background-color: tan;
-  background-size: cover; }
+  background-size: cover;
+  background: silver; }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
   background-color: #999999; }
 
 .music-nav {
-  background-color: #BB09BF; }
+  background: indigo; }
 
 div.right {
   padding: 10px; }
@@ -16,6 +16,7 @@ div.right {
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
+  text-color: white;
   padding: 10px; }
 
 .big-box {

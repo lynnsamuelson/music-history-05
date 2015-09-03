@@ -1,6 +1,6 @@
 body {
-  background-image: url(http:theartmad.com/wp-content/uploads/2015/08/Blue-Music-Notes-Background-1.jpg);
-  background-size: cover; }
+  background-size: cover;
+  background-color: tan; }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
   background-color: #999999; }

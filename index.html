@@ -7,13 +7,12 @@
     <!-- <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
-  <body ng-app="musicApp">
+  <body>
   <!-- NAV BAR from BOOTSTRAP -->
     <div class="music-nav container-fluid">
       <ul class="nav nav-pills">
-      <li role="presentation" class="active"><a href="partials/songs">View Music</a></li>
-      <li role="presentation"><a href="partials/addSongForm.html">Add Music</a></li>
-      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation" class="active"><a href="#/songs">View Music</a></li>
+      <li role="presentation"><a href="#/addSongForm">Add Music</a></li>
       </ul>
     </div>
 
@@ -22,15 +21,16 @@
     </div>
        
       
+  <script data-main="app/require-config" src="lib/bower_components/requirejs/require.js"></script>
 
 <!--
-  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script
   <script src="../bower_components/q/q"></script>
   <script src="../bower_components/require-handlebars-plugin/hbs"></script>
   <script src="../bower_components/lodash/lodash"></script>
   <script data-main="javascripts/main"src="lib/bower_components/requirejs/require.js"></script>
   <script src="../bower_components/bootstrap/dist/js/bootstrap.min"></script>
--->
+
   <script src="lib/bower_components/jquery/dist/jquery.js"></script>
   <script src="lib/bower_components/angular/angular.min.js"></script>
   <script src="lib/bower_components/angular-route/angular-route.js"></script>
@@ -42,7 +42,7 @@
   <script src="app/controllers/SongDetailCtrl.js"></script>
   <script src="app/controllers/addSongCtrl.js"></script>
   <script src="app/factories/song_storage.js"></script>
-  <script src="app/factories/simple_storage.js"></script>
+  -->
   </body>
 </html>
 
